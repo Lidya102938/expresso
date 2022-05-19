@@ -11,7 +11,7 @@ import ExpressAutoHandleTransaction from '@middlewares/ExpressAutoHandleTransact
 import ExpressErrorResponse from '@middlewares/ExpressErrorResponse'
 import ExpressErrorSequelize from '@middlewares/ExpressErrorSequelize'
 import ExpressErrorYup from '@middlewares/ExpressErrorYup'
-import ExpressRateLimit from '@middlewares/ExpressRateLimit'
+// import ExpressRateLimit from '@middlewares/ExpressRateLimit'
 import indexRoutes from '@routes/index'
 import chalk from 'chalk'
 import compression from 'compression'
@@ -67,7 +67,7 @@ class App {
     this.application.use(requestIp.mw())
     this.application.use(UserAgent.express())
     this.application.use(i18nextMiddleware.handle(i18nConfig))
-    this.application.use(ExpressRateLimit)
+    // this.application.use(ExpressRateLimit)
     this.application.use(function (
       req: Request,
       res: Response,
@@ -184,6 +184,7 @@ class App {
     }
 
     // Run listener
+    console.log(this.port)
     server.listen(this.port)
     server.on('error', onError)
     server.on('listening', onListening)

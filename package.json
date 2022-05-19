@@ -12,7 +12,6 @@
     "test:lint": "npx eslint '*/**/*.{js,jsx,ts,tsx}' --quiet --fix",
     "test:types": "npx tsc --noEmit",
     "test:types-watch": "npm run test:types -- --watch",
-    "prebuild": "npm-run-all clean test:lint test:types",
     "build": "npx tsc -p .",
     "deploy": "npm run build && pm2 reload ecosystem.config.js",
     "serve:staging": "NODE_ENV=staging node ./dist/server.js",
